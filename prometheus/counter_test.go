@@ -25,6 +25,14 @@ import (
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
+func TestVerifyRounding(t *testing.T) {
+	var f float64 = 1<<64 - 1
+	if f == float64(uint64(f)) {
+		t.Fatal("values are the same after casting")
+	} else {
+		t.Fatal("values are different")
+	}
+}
 func TestCounterAddExcess(t *testing.T) {
 	now := time.Now()
 	counter := NewCounter(CounterOpts{

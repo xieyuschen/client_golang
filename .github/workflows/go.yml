@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - main
+      - "*"
       - "release-*"
 
 # Minimal permissions to be inherited by any job that don't declare it's own permissions
@@ -18,7 +18,7 @@ jobs:
 
     strategy:
       matrix:
-        go_version: ["1.20", "1.21", "1.22"]
+        go_version: ["1.20"]
 
     steps:
       - name: Checkout code
