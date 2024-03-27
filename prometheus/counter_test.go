@@ -26,6 +26,8 @@ import (
 )
 
 func TestVerifyRounding(t *testing.T) {
+	m := uint64(1<<64 - 1)
+	t.Log("result of maxuint +1: ", m+1)
 	var f float64 = 1<<64 - 1
 	if f == float64(uint64(f)) {
 		t.Fatal("values are the same after casting")
@@ -33,6 +35,7 @@ func TestVerifyRounding(t *testing.T) {
 		t.Fatal("values are different")
 	}
 }
+
 func TestCounterAddExcess(t *testing.T) {
 	now := time.Now()
 	counter := NewCounter(CounterOpts{
